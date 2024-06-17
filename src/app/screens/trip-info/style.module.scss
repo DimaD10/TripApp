@@ -1,0 +1,103 @@
+@use "@/theme/mixins.scss" as mixin;
+@use "@/theme/variables.scss" as var;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 0;
+
+  @media (max-width: 480px) {
+    padding: 24px 0;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  @media (max-width: 600px) {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 128%;
+
+  @media (max-width: 600px) {
+    font-size: 24px;
+  }
+}
+
+.button {
+  display: flex;
+  padding-right: 12px;
+
+  @include mixin.button-main;
+
+  line-height: 32px;
+
+  svg rect {
+    fill: transparent !important;
+  }
+
+  &.wishlist {
+    svg {
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+
+    &.animate {
+      svg {
+        animation: jump ease-in-out 0.3s forwards;
+      }
+    }
+  }
+
+  &.wishlistActive {
+    background-color: var.$blue;
+    color: var.$white;
+    border-color: var.$blue;
+
+    svg path {
+      transition: fill ease 0.2s !important;
+      fill: var.$white;
+
+      &[class*="stroke"] {
+        stroke: var.$white;
+      }
+    }
+  }
+}
+
+.paragraph {
+    line-height: 150%;
+    font-size: 16px;
+    
+    @media (max-width: 480px) {
+        font-size: 15px;
+    }
+}
+
+@keyframes jump {
+  50% {
+    transform: translateY(-4px);
+  }
+}

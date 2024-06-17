@@ -1,0 +1,120 @@
+@use "../theme/variables.scss" as var;
+@use "@/theme/mixins.scss" as mixin;
+
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+    list-style-type: none;
+}
+
+html,
+body {
+  color: var.$main-text-color;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  @include mixin.custom-scrollbar(12px);
+
+  &::-webkit-scrollbar-thumb {
+    border: 3px solid var.$white;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+
+  font-family: var(--font-sf-pro-text);
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  padding: 0 10px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 720px;
+}
+
+.swiper-slide {
+  width: auto !important;
+}
+
+.swiper {
+  position: relative;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    left: 12px;
+    top: calc(292px / 2);
+    transform: translateY(-50%);
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var.$white;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+
+    cursor: pointer;
+
+    transition: opacity ease 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:not(.swiper-button-disabled) {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &.swiper-button-disabled {
+        opacity: 0;
+    }
+  }
+  .swiper-button-prev {
+    img {
+      transform: rotate(180deg);
+    }
+  }
+  .swiper-button-next {
+    left: auto;
+    right: 12px;
+  }
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+}
+.group.reorder {
+  flex-direction: column;
+}

@@ -1,0 +1,120 @@
+@use "@/theme/mixins.scss" as mixin;
+@use "@/theme/variables.scss" as var;
+
+@mixin font-typo_local {
+  line-height: 32px;
+  font-size: 15px;
+  font-weight: 600;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 28px;
+  }
+}
+
+@mixin action-group_local {
+  @include mixin.main-frame;
+
+  border-radius: var.$rounded-xl;
+}
+
+.header {
+    z-index: 99;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 0;
+
+  @media (max-width: 480px) {
+    padding: 16px 0;
+    gap: 10px;
+
+    flex-wrap: wrap;
+  }
+}
+
+.navigation {
+  display: flex;
+
+  @include action-group_local;
+}
+
+.navItem {
+  a,
+  div {
+    padding: 0px 20px;
+
+    @media (max-width: 480px) {
+      padding: 0px 10px;
+    }
+
+    @include font-typo_local;
+
+    display: inline-block;
+    height: 100%;
+
+    transition: background-color ease 0.2s;
+
+    &:hover {
+      background-color: var.$purple;
+    }
+  }
+
+  &:first-child {
+    a,
+    div {
+      padding-left: 16px;
+      border-radius: var.$rounded-xl 0 0 var.$rounded-xl;
+
+      @media (max-width: 480px) {
+        padding-left: 8px;
+      }
+    }
+  }
+
+  &:last-child {
+    a,
+    div {
+      padding-right: 16px;
+      border-radius: 0 var.$rounded-xl var.$rounded-xl 0;
+
+      @media (max-width: 480px) {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  &:not(:last-child) {
+    a,
+    div {
+      border-right: 1px solid var.$gray;
+    }
+  }
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  position: relative;
+  overflow: hidden;
+
+  svg path {
+    transition: stroke ease 0.3s;
+  }
+
+  @include mixin.button-main;
+
+  svg,
+  span {
+    z-index: 10;
+  }
+
+  @include font-typo_local;
+  @include action-group_local;
+}

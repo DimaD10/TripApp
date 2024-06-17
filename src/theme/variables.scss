@@ -1,0 +1,24 @@
+$black: #000;
+$white: #fff;
+$gray: #dbdbdc;
+$purple: #edeeff;
+$blue: #714eff;
+$dark-gray: #9d9da1;
+$light-gray: #e5e5ea;
+$lighter-gray: #F2F2F7;
+$white-gray: #f3f3f3;
+
+$opacity-gray: #3c3c43cc;
+$opacity-gray-light: #3c3c4380;
+
+$main-text-color: $black;
+
+$rounded-sm: 4px;
+$rounded-md: 8px;
+$rounded-xl: 16px;
+
+$custom-anim-func: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+$main-box-shadow: 0px 0px 0px 0.5px
+    var(--SeparatorColor-Subdued, rgba(60, 60, 67, 0.16)),
+  0px 2px 3px 0px rgba(0, 0, 0, 0.03);

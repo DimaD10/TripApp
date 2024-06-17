@@ -1,0 +1,97 @@
+@use "@/theme/mixins.scss" as mixin;
+@use "@/theme/variables.scss" as var;
+
+.tools {
+  position: relative;
+  height: 32px;
+  width: 32px;
+
+  &.active {
+    .menu {
+      max-height: 108px;
+      padding: 4px;
+      opacity: 1;
+
+      .menuWrapper {
+        margin-right: 0px;
+      }
+    }
+
+    .header img {
+      transform: rotate(180deg);
+    }
+
+    .option {
+      margin-top: 0%;
+      opacity: 1;
+    }
+  }
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  outline: none;
+
+  img {
+    pointer-events: none;
+  }
+
+  transition: background-color ease 0.2s;
+  border-radius: var.$rounded-md;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(var.$light-gray, 0.5);
+  }
+
+  &:active {
+    transition: background-color ease 0.05s;
+    background-color: rgba(var.$light-gray, 0.65);
+  }
+}
+
+.menu {
+  @include mixin.dropdown-list;
+
+  z-index: 9999;
+
+  position: absolute;
+
+  width: 92px;
+  top: 50%;
+  left: auto;
+  right: 110%;
+  transform: translateY(-50%);
+
+  &Wrapper {
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    @include mixin.custom-scrollbar;
+  }
+}
+
+.option {
+  padding: 8px 6px;
+  cursor: pointer;
+  border-radius: var.$rounded-sm;
+  margin-top: -15%;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(var.$main-text-color, 0.7);
+
+  transition: background-color ease 0.2s, margin ease 0.26s;
+
+  &:hover {
+    background-color: rgba(var.$gray, 0.4);
+  }
+}

@@ -1,0 +1,9 @@
+@use "@/theme/variables.scss" as var;
+
+.label {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 140%;
+  color: var.$opacity-gray-light;
+  letter-spacing: -0.2px;
+}

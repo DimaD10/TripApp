@@ -1,0 +1,65 @@
+@use "@/theme/mixins.scss" as mixin;
+@use "@/theme/variables.scss" as var;
+
+.dropdown {
+  position: relative;
+
+  &.active {
+    .body {
+      max-height: 160px;
+      padding: 4px;
+      opacity: 1;
+
+      .bodyWrapper {
+        margin-right: 0px;
+      }
+    }
+
+    .header img {
+      transform: rotate(180deg);
+    }
+
+    .item {
+      margin-top: 0%;
+      opacity: 1;
+    }
+  }
+}
+
+.header {
+  display: flex !important;
+  align-items: center;
+  padding-right: 14px !important;
+
+  cursor: pointer;
+  gap: 10px;
+
+  user-select: none;
+
+  img {
+    transition: all var.$custom-anim-func 0.23s;
+  }
+}
+
+.body {
+    position: absolute;
+
+  @include mixin.dropdown-list;
+}
+
+.item {
+  padding: 8px 6px;
+  cursor: pointer;
+  border-radius: var.$rounded-sm;
+  margin-top: -20%;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(var.$main-text-color, 0.7);
+
+  transition: background-color ease 0.2s, margin ease 0.26s;
+
+  &:hover {
+    background-color: rgba(var.$gray, 0.4);
+  }
+}

@@ -1,0 +1,140 @@
+@use "@/theme/mixins.scss" as mixin;
+@use "@/theme/variables.scss" as var;
+
+
+.section {
+    overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 24px 0;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.details {
+  display: flex;
+  gap: 16px;
+  padding: 24px 22px;
+
+  border-radius: 16px;
+  background: var.$purple;
+  box-shadow: 0px 0px 0px 0.5px #ccd7f1,
+    0px 2px 3px 0px rgba(220, 227, 246, 0.5);
+
+  @media (max-width: 710px) {
+    flex-wrap: wrap;
+  }
+}
+
+.title {
+  font-size: 22px;
+  font-family: var(--font-sf-pro-display);
+}
+
+.route {
+  display: grid;
+  grid-template-columns: 1fr 32px 1fr;
+  gap: 4px;
+
+  min-width: 60%;
+
+  @media (max-width: 710px) {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    input {
+        width: 100%;
+    }
+  }
+
+  &Icon {
+    width: 32px;
+    margin: auto 0;
+
+    @media (max-width: 480px) {
+        width: 24px;
+        height: auto;
+    }
+  }
+}
+
+.detail {
+  @include mixin.main-frame;
+
+  padding: 0 16px;
+  min-width: 0;
+
+  outline: none !important;
+
+  font-family: var(--font-sf-pro-text);
+  font-size: 15px;
+  letter-spacing: -0.2px;
+  color: var.$opacity-gray;
+  min-height: 40px;
+
+  &Small {
+    flex-shrink: 1;
+    max-width: 70px;
+  }
+  &Big {
+    flex: 1 1 auto;
+
+    @media (max-width: 480px) {
+        max-width: calc(100% - 86px);
+    }
+  }
+
+  &Custom {
+    padding: 0;
+
+    [class*="MuiFormControl-root"],
+    [class*="MuiInputBase-root"] {
+      height: 100% !important;
+    }
+
+    input {
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+      border: none;
+      outline: none;
+      border-radius: var.$rounded-md;
+
+      padding: 0 16px;
+
+      font-family: var(--font-sf-pro-text);
+      font-size: 15px;
+      letter-spacing: -0.2px;
+      color: var.$opacity-gray;
+    }
+  }
+
+  &Icon {
+    position: relative;
+
+    input {
+      padding-left: 44px;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 4px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use "@/theme/mixins.scss" as mixin;
+@use "@/theme/variables.scss" as var;
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  line-height: 150%;
+  font-size: 16px;
+  font-family: 600;
+
+  @media (max-width: 480px) {
+    font-size: 15px;
+  }
+}
+
+.descr {
+  line-height: 140%;
+  font-size: 15px;
+  color: var.$opacity-gray;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}

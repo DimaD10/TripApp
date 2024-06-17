@@ -1,0 +1,222 @@
+@use "@/theme/variables.scss" as var;
+@use "@/theme/mixins.scss" as mixin;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.galleryGrid {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+
+  @media (max-width: 600px) {
+    border-radius: 16px;
+  }
+
+  div {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(2, 144px);
+    gap: 4px;
+
+    .image {
+      display: none;
+
+      &:nth-child(-n + 5) {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      grid-template-rows: repeat(2, 100px);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-rows: repeat(2, 144px);
+
+      .image {
+        display: none;
+
+        &:nth-child(-n + 5) {
+          display: none;
+        }
+
+        &:nth-child(-n + 3) {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.image {
+  background-color: var.$gray;
+
+  img {
+    height: 100% !important;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &:first-child {
+    grid-row: span 2;
+
+    @media (max-width: 480px) {
+      grid-row: span 1;
+      grid-column: span 2;
+    }
+  }
+}
+
+.info {
+  margin: 28px 0;
+  padding: 24px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 64px;
+
+  @include mixin.main-frame;
+
+  border-radius: var.$rounded-xl;
+
+  @media (max-width: 672px) {
+    padding: 18px;
+    gap: 40px;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &Main {
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+    row-gap: 12px !important;
+
+    @media (max-width: 672px) {
+      gap: 40px;
+    }
+
+    @media (max-width: 600px) {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .link {
+    margin-left: auto;
+    text-wrap: nowrap;
+
+    @media (max-width: 600px) {
+      margin-right: auto;
+    }
+
+    @include mixin.link-text;
+  }
+}
+
+.button {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  cursor: pointer;
+
+  line-height: 23px;
+  border-radius: var.$rounded-xl;
+
+  display: flex;
+  align-items: center;
+
+  padding-right: 12px;
+  padding-left: 4px;
+
+  font-size: 15px;
+  font-weight: 400;
+  font-family: var(--font-sf-pro-text);
+
+  color: #fff;
+  border: none;
+  background-color: rgba(136, 136, 136, 0.3);
+
+  transition: background-color ease 0.2s;
+
+  backdrop-filter: blur(12px);
+
+  img {
+    width: 32px;
+    height: auto;
+  }
+
+  @include mixin.hover-button($color: var.$gray, $size: 3px);
+
+  &:hover {
+    background-color: rgba(114, 117, 133, 0.3);
+  }
+
+  &:active {
+    transition: background-color ease 0.05s;
+    background-color: rgba(114, 117, 133, 0.5);
+  }
+
+  @media (max-width: 600px) {
+    right: 8px;
+    bottom: 8px;
+
+    font-size: 14px;
+
+    img {
+      width: 26px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  font-family: var(--font-sf-pro-text);
+
+  @media (max-width: 600px) {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 140%;
+
+    color: var.$opacity-gray;
+
+    @media (max-width: 600px) {
+        font-size: 14px;
+    }
+  }
+
+  p {
+    line-height: 150%;
+    font-weight: 600;
+    color: var.$main-text-color;
+    font-size: 16px;
+
+    @media (max-width: 600px) {
+        font-size: 15px;
+    }
+  }
+}

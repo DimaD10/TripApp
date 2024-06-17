@@ -1,0 +1,143 @@
+@use "./variables.scss" as var;
+
+@mixin main-frame {
+  box-shadow: var.$main-box-shadow;
+  border: 1px solid var.$gray;
+  border-radius: var.$rounded-md;
+  background-color: var.$white;
+}
+
+@mixin custom-scrollbar($width: 4px) {
+  &::-webkit-scrollbar {
+    width: $width;
+    border-radius: var.$rounded-md;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var.$purple;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var.$blue;
+    border-radius: var.$rounded-md;
+  }
+}
+
+@mixin hover-button($color: var.$blue, $size: 4px) {
+  transition: all ease 0.25s, box-shadow var.$custom-anim-func 0.25s;
+
+  &:hover {
+    box-shadow: 0 0 0 $size rgba($color, 0.3);
+  }
+
+  &:active {
+    transition: all ease 0.05s;
+    box-shadow: 0 0 0 calc($size + 1px) rgba($color, 0.3);
+
+    svg path {
+      transition: all ease 0.05s;
+    }
+  }
+}
+
+@mixin button-main {
+  transition: all ease 0.25s, box-shadow var.$custom-anim-func 0.25s;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  @include main-frame;
+  @include hover-button;
+
+  svg,
+  img {
+    flex: 0 0 auto;
+  }
+
+  svg path,
+  svg rect {
+    transition: stroke ease 0.25s, fill ease 0.25s;
+  }
+
+  &:hover {
+    background-color: var.$blue;
+
+    color: var.$white;
+    border-color: transparent;
+
+    svg [class*="stroke"] {
+      stroke: #fff;
+    }
+    svg [class*="fill"] {
+      fill: #fff;
+    }
+  }
+
+  &:active {
+    background-color: #6545e7;
+
+    color: var.$white;
+    border-color: transparent;
+
+    svg [class*="stroke"] {
+      stroke: #fff;
+    }
+    svg [class*="fill"] {
+      fill: #fff;
+    }
+  }
+}
+
+@mixin link-text {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 32px;
+  font-family: var(--font-sf-pro-text);
+
+  color: var.$blue;
+
+  transition: opacity ease 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@mixin dropdown-list {
+  top: calc(100% + 1px);
+  width: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+
+  max-height: 0px;
+
+  padding: 0px 4px;
+  padding-right: 3px !important;
+
+  @include main-frame;
+
+  opacity: 0;
+  overflow: hidden;
+
+  transition: all ease 0.3s;
+
+  [class*="Wrapper"] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 3px;
+
+    border-radius: var.$rounded-sm;
+    margin-right: -14px;
+
+    transition: margin var.$custom-anim-func 0.3s;
+
+    @include custom-scrollbar();
+  }
+}

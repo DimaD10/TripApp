@@ -1,0 +1,121 @@
+[
+  {
+    "title": "Golden Circle Region",
+    "id": "A",
+    "labels": ["Geysers", "Waterfalls", "Crater lakes"],
+    "paragraph": "The Golden Circle in Iceland is a renowned tourist route that encompasses an array of stunning natural landmarks within a relatively short distance from Reykjavík. This scenic loop includes three primary attractions: Þingvellir National Park, where you can explore the rift valley created by the diverging North American and Eurasian tectonic plates and witness the site of Iceland's ancient parliament.",
+    "cards": [
+      [
+        {
+          "title": "Gullfoss Waterfall",
+          "previewUrl": "/images/places/img2.png",
+          "labels": ["1h", "Waterfall"],
+          "pick": "true",
+          "totalDayTime": "40m"
+        },
+        {
+          "title": "Reykjadalur Valley",
+          "previewUrl": "/images/places/img3.png",
+          "labels": ["1h", "Iconic hike, hot springs"],
+          "pick": "true",
+          "totalDayTime": "40m"
+        }
+      ],
+      [
+        {
+          "title": "Geysir Thermal Field",
+          "previewUrl": "/images/places/img6.png",
+          "labels": ["1h", "Geysers"],
+          "pick": "false",
+          "totalDayTime": "1h 40m"
+        },
+        {
+          "title": "Thingvellir",
+          "previewUrl": "/images/places/img7.png",
+          "labels": ["1h", "Iconic hike", "Light traffic"],
+          "pick": "true",
+          "totalDayTime": "1h 40m"
+        }
+      ]
+    ],
+    "stay": [
+      {
+        "title": "Frost and Fire Hotel",
+        "previewUrl": "/images/places/img8.png",
+        "labels": ["$180+", "Boutique hotel"],
+        "pick": "true",
+        "rating": "9.1"
+      },
+      {
+        "title": "The Greenhouse Hotel",
+        "previewUrl": "/images/places/img9.png",
+        "labels": ["$230+", "Luxury hotel"],
+        "pick": "true",
+        "rating": "9.1"
+      },
+      {
+        "title": "INNI",
+        "previewUrl": "/images/places/img10.png",
+        "labels": ["$130+", "Apart hotel"],
+        "pick": "false",
+        "rating": "9.1"
+      }
+    ]
+  },
+  {
+    "title": "South & Highlands",
+    "id": "B",
+    "labels": ["Geysers", "Waterfalls", "Crater lakes"],
+    "paragraph": "The South & Highlands of Iceland offer a breathtaking landscape of diverse natural wonders, from expansive glaciers and active volcanoes to serene waterfalls and black sand beaches. This region is also a haven for adventurers, featuring numerous hiking trails, hidden hot springs, and vast lava fields waiting to be explored. Visitors will be captivated by the blend of tranquility and raw, untamed beauty that defines this unique part of Iceland.",
+    "cards": [
+      [
+        {
+          "title": "Skógafoss Waterfall",
+          "previewUrl": "/images/places/img11.png",
+          "labels": ["1h", "Iconic waterfall"],
+          "pick": "true",
+          "totalDayTime": "40m"
+        },
+        {
+          "title": "Katla Ice Cave",
+          "previewUrl": "/images/places/img5.png",
+          "labels": ["1h", "Ice caves"],
+          "pick": "true",
+          "totalDayTime": "40m"
+        }
+      ],
+      [
+        {
+          "title": "Fjaðrárgljúfur",
+          "previewUrl": "/images/places/img6.png",
+          "labels": ["1h", "Geysers"],
+          "pick": "false",
+          "totalDayTime": "1h 20m"
+        }
+      ]
+    ],
+    "stay": [
+      {
+        "title": "Magma Hotel",
+        "previewUrl": "/images/places/img4.png",
+        "labels": ["$250+", "Boutique hotel"],
+        "pick": "true",
+        "rating": "9.1"
+      },
+      {
+        "title": "Hotel Vík í Mýrdal",
+        "previewUrl": "/images/places/img12.png",
+        "labels": ["$150+", "Luxury hotel"],
+        "pick": "true",
+        "rating": "9.1"
+      },
+      {
+        "title": "Hótel Kría",
+        "previewUrl": "/images/places/img10.png",
+        "labels": ["$130+", "Luxury hotel"],
+        "pick": "false",
+        "rating": "9.1"
+      }
+    ]
+  }
+]
